@@ -1,0 +1,53 @@
+const mongoose = require('mongoose')
+const userSchema = mongoose.Schema({
+  name:{
+    type:String,
+    required:true
+  },
+  email:{
+    type:String,
+    required:true
+  },
+  password:{
+    type:String,
+    required:true
+  },
+  profilePic:{
+    type:String,
+    default:""
+  },
+  coverPic:{
+    type:String,
+    default:""
+  },
+  location:{
+    type:String,
+    default:""
+  },
+  number:{
+    type:Number,
+    default:""
+  },
+  website:{
+    type:String,
+    default:""
+  },
+  gender:{
+    type:String,
+    default:""
+  },
+  about:{
+    type:String,
+    default:""
+  },
+  time:{
+    type:Date,
+    default:Date.now
+  },
+  post:[{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Post'
+    }]
+})
+const User = mongoose.model('User',userSchema)
+module.exports = User;
